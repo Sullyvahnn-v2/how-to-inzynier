@@ -1,5 +1,4 @@
 #import "metadata.typ" as metadata
-
 #show: metadata.project.with(
   title: [Designing a Reliable Engineering Thesis Workflow],
   author: "Artur Wojnar",
