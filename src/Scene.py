@@ -153,8 +153,8 @@ def load_scene(dem_path: str = "land_height.asc",
         dem=dem, land_cover=land_cover,
         ncols=int(hdr['ncols']), nrows=int(hdr['nrows']),
         xllcorner=hdr['xllcorner'], yllcorner=hdr['yllcorner'],
-        cellsize=hdr['dx'],
-    )
+        cellsize=hdr['cellsize'],
+u    )
     print(f"[Scene] Grid {sc.nrows}x{sc.ncols} @ {sc.cellsize} m/px | "
           f"Z: {np.nanmin(dem):.1f}-{np.nanmax(dem):.1f} m")
     return sc

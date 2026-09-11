@@ -1,0 +1,20 @@
+graph TD
+    %% Stylizacja węzłów
+    classDef entrypoint fill:#1e293b,stroke:#0f172a,color:#ffffff,stroke-width:2px;
+    classDef core fill:#2563eb,stroke:#1d4ed8,color:#ffffff,stroke-width:2px;
+    classDef module fill:#ffffff,stroke:#64748b,color:#0f172a,stroke-width:2px;
+
+    %% Struktura i przepływ wywołań
+    A[run_sar.py<br/><i>Główny punkt wejścia</i>] :::entrypoint -->|1. Inicjalizuje i uruchamia| B[sar_mechanics.py<br/><i>Silnik symulacji SAR</i>] :::core
+    
+    subgraph Moduły składowe [Obiekty i Logika Dziedzinowa]
+        C[satellite.py<br/><i>Trajektoria & Radar</i>] :::module
+        D[scene.py<br/><i>Geometria & Odbicia RCS</i>] :::module
+    end
+
+    B -->|2. Tworzy instancję i pobiera pozycję/sygnał| C
+    B -->|3. Tworzy instancję i oblicza echo od celów| D
+
+    %% Relacja obliczeniowa w pętli symulacji
+    C -.->|Impuls i pozycja radaru| B
+    D -.->|Odpowiedź sceny / Sygnał powrotny| B

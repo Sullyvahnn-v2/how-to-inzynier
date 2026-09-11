@@ -410,3 +410,7 @@ class SARRaytracer:
         ))
 
         return results
+
+# TODO: polarymetria
+#TODO: testy
+# TODO: rozne czestotlwosci
